@@ -5,8 +5,9 @@
 ## Prerequisites
 
 1. [Prerequisites | Tauri Apps](https://tauri.app/v1/guides/getting-started/prerequisites/)
-2. `cargo install create-tauri-app`
-3. `npm install`
+2. `cargo install tauri-cli`
+3. `cargo install create-tauri-app`
+4. `npm install`
 
 ## Run
 
