@@ -1,6 +1,7 @@
 import './style.css'
 import typescriptLogo from './typescript.svg'
-import { setupCounter } from './counter'
+import {setupCounter} from './counter'
+import {invoke} from '@tauri-apps/api'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
@@ -17,7 +18,18 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <p class="read-the-docs">
       Click on the Vite and TypeScript logos to learn more
     </p>
+    <p>Rust says: <span id="hello"></span></p>
   </div>
 `
 
 setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+
+invoke('greet', {name: 'World'})
+  .then((response) => {
+    if (typeof response === 'string') {
+      const element = document.getElementById('hello')
+      if (element) {
+        element.textContent = response
+      }
+    }
+  })
