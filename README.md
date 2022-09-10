@@ -12,5 +12,5 @@
 ## Run
 
 ```
-npm run dev
+cargo tauri dev
 ```
